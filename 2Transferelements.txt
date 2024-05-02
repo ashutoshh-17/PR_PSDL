@@ -1,0 +1,38 @@
+//Problem Statement:  Write an Embedded C program to transfer elements from one location to another for following: 
+
+i) Internal to internal memory transfer 
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <pic18f4550.h>
+void main(void) 
+{
+    int temp,i;
+    int source1[] = {0x21,0x22,0x23,0x24,0x25};   // source mem block
+    int dest[] = {0x00,0x00,0x00,0x00,0x00};      // destination mem block
+
+    for(i=0; i<=4;i++)
+    {                                                                            // counter = 5  
+      dest[i] = source1[i];                                         // source to destination
+    }
+}
+
+
+
+ii) Internal to external memory transfer 
+	#include <stdio.h>
+	#include <stdlib.h>
+	#include <pic18f4550.h>
+	void main(void) 
+	{
+    	      int temp,i;
+    	      int source1[] = {0x21,0x22,0x23,0x24,0x25};
+    	      int dest[] = {0x99,0x99,0x99,0x99,0x99};
+  
+    	     for(i=0; i<=4;i++)
+	    {
+      	           temp = source1[i];
+                         source1[i] = dest[i];
+      	          dest[i] = temp;
+    	     }
+	}
